@@ -6,8 +6,8 @@ MongoDB Connection Class for the NK Node Package
 Install using NPM
 
 ```bash
-echo "registry=https://npm.pkg.github.com/Encke" >> .npmrc
-npm i @encke/nk-mongo --save
+echo "registry=https://npm.pkg.github.com/AmeriMexSolutions" >> .npmrc
+npm i @amerimexsolutions/nk-mongo --save
 ```
 
 ## How to use
@@ -16,7 +16,7 @@ Mongo is the preferred database format for NodeJS based systems, it supports mul
 
 ### Start and connect to server
 ```node
-const NKMongo = require( '@encke/nk-mongo' )
+const NKMongo = require( '@amerimexsolutions/nk-mongo' )
 //                  dbName,         ip,   port, user, pass, timeoutInMS, callback
 NKMongo.start( 'MyDatabase', '127.0.0.1', 27017, null, null, null, ( isError, errorMessage ) => {
   //Super duper awesome code here!
@@ -27,7 +27,7 @@ The database connection object is saved in the NKMongo Object, indexed by the da
 
 ### Start and connect to multiple servers
 ```node
-const NKMongo = require( 'nk-mongo' )
+const NKMongo = require( '@amerimexsolutions/nk-mongo' )
 NKMongo.start( 'MyDatabase', '127.0.0.1', 27017, null, null, null, ( isError1, errorMessage1 ) => NKMongo.start( 'RemoteDB1', 'remote.mydomain.com', 27017, null, null, null, ( isError2, errorMessage2 ) => NKMongo.start( 'RemoteDB2', 'remote2.mydomain.com', 27017, null, null, null, ( isError3, errorMessage3 ) => {
   console.log( isError1, errorMessage1, isError2, errorMessage2, isError3, errorMessage3 )
   //WHAT?! Yes, you can connect to multiple servers in the same core, using them as objects for real-time compliances
